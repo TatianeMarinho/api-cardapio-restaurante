@@ -1,4 +1,4 @@
-# 🍽️ API Cardápio Restaurante
+# 🍽️  API Cardápio Restaurante
 
 Projeto desenvolvido com foco em aprendizado e boas práticas de desenvolvimento Back-end, simulando a construção de uma API REST para gerenciamento do cardápio de um restaurante.
 
@@ -46,30 +46,18 @@ api_cardapio_restaurante/
 A aplicação segue uma arquitetura em camadas para facilitar a manutenção e a escalabilidade.
 
 Cliente
-
 ↓
-
 Routes
-
 ↓
-
 Controllers
-
 ↓
-
 Services
-
 ↓
-
 Repositories
-
 ↓
-
-Data (temporário)
-
+Data
 ↓
-
-Banco de Dados (futuro)
+Error Middleware
 
 ## 📡 Endpoints
 
