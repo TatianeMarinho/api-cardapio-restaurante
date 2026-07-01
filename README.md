@@ -1,17 +1,15 @@
 # 🍽️ API Cardápio Restaurante
 
-API REST desenvolvida com **Node.js**, **Express** e **TypeScript** para gerenciamento de um restaurante.
+Projeto desenvolvido com foco em aprendizado e boas práticas de desenvolvimento Back-end, simulando a construção de uma API REST para gerenciamento do cardápio de um restaurante.
 
 ## 🎯 Objetivos
 
-Este projeto foi criado com fins de estudo para praticar conceitos de:
-
-- Aprender Node.js
-- Aprender Express
-- Construir uma API REST
-- Aplicar arquitetura em camadas
-- Utilizar boas práticas de desenvolvimento
-- Versionar o projeto com Git
+- Desenvolver uma API REST utilizando Node.js e Express
+- Aplicar os conceitos de TypeScript em um projeto real
+- Praticar arquitetura em camadas
+- Simular integração com banco de dados
+- Evoluir posteriormente para PostgreSQL
+- Utilizar Git e GitHub seguindo boas práticas
 
 ## 🚀 Tecnologias
 
@@ -26,10 +24,15 @@ Este projeto foi criado com fins de estudo para praticar conceitos de:
 api_cardapio_restaurante/
 │
 ├── src/
+|   ├── controllers/
+|   ├── data/
+|   ├── repositories/
+|   ├── routes/
+|   ├── services/
+|   ├── types/
+│   |
 │   ├── app.ts
 │   ├── server.ts
-│   └── routes/
-│       └── index.ts
 │
 ├── .gitignore
 ├── .env.example
@@ -37,8 +40,88 @@ api_cardapio_restaurante/
 ├── package-lock.json
 ├── tsconfig.json
 ├── README.md
-└── node_modules/
+
+## 🏗️ Arquitetura
+
+A aplicação segue uma arquitetura em camadas para facilitar a manutenção e a escalabilidade.
+
+Cliente
+
+↓
+
+Routes
+
+↓
+
+Controllers
+
+↓
+
+Services
+
+↓
+
+Repositories
+
+↓
+
+Data (temporário)
+
+↓
+
+Banco de Dados (futuro)
+
+## 📡 Endpoints
+
+### Produtos
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | /produtos | Lista todos os produtos |
+
+## Funcionalidades
+
+### Produtos
+
+- [x] Listar todos os produtos
+- [ ] Buscar produto por ID
+- [ ] Cadastrar produto
+- [ ] Atualizar produto
+- [ ] Remover produto
 
 ## 📌 Status
 
 🚧 Em desenvolvimento
+
+## Próximos Passos
+
+- Buscar produto por ID
+- Cadastro de produtos
+- Atualização de produtos
+- Exclusão de produtos
+- Integração com PostgreSQL
+- Docker
+- Testes automatizados
+
+## ▶️ Como executar
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/TatianeMarinho/api-cardapio-restaurante.git
+
+Entre na pasta:
+
+cd api-cardapio-restaurante
+
+Instale as dependências:
+
+npm install
+
+Execute o projeto:
+
+npm run dev
+
+A API estará disponível em:
+
+http://localhost:3000
