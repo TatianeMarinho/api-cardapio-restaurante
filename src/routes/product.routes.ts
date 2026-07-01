@@ -9,6 +9,10 @@ productRoutes.get("/", (req, res) => {
     productController.findAll(req, res); //chama o método findAll da classe ProductController
 });
 
+productRoutes.get("/:id", (req, res) => {
+    productController.findById(req, res); //chama o método findById da classe ProductController
+})
+
 export default productRoutes;
 
 //configura as rotas de produtos da aplicação/express

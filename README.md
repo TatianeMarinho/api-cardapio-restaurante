@@ -55,7 +55,7 @@ Services
 ↓
 Repositories
 ↓
-Data
+Data (temporário)
 ↓
 Error Middleware
 
@@ -66,13 +66,14 @@ Error Middleware
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
 | GET | /produtos | Lista todos os produtos |
+| GET | /produtos/:id | Busca um produto pelo ID |
 
 ## Funcionalidades
 
 ### Produtos
 
 - [x] Listar todos os produtos
-- [ ] Buscar produto por ID
+- [x] Buscar produto por ID
 - [ ] Cadastrar produto
 - [ ] Atualizar produto
 - [ ] Remover produto
@@ -83,10 +84,10 @@ Error Middleware
 
 ## Próximos Passos
 
-- Buscar produto por ID
 - Cadastro de produtos
 - Atualização de produtos
 - Exclusão de produtos
+- Modelagem completa do domínio
 - Integração com PostgreSQL
 - Docker
 - Testes automatizados
