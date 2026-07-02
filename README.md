@@ -49,17 +49,25 @@ api_cardapio_restaurante/
 A aplicação segue uma arquitetura em camadas para facilitar a manutenção e a escalabilidade.
 
 Cliente
-↓
+   │
+   ▼
 Routes
-↓
+   │
+   ▼
 Controllers
-↓
+   │
+   ▼
 Services
-↓
+   │
+   ▼
 Repositories
-↓
+   │
+   ▼
 Data (temporário)
-↓
+
+Erros lançados em qualquer camada
+           │
+           ▼
 Error Middleware
 
 ## 📡 Endpoints
@@ -74,6 +82,12 @@ Error Middleware
 
 ## Funcionalidades
 
+## Modelagem do domínio
+
+Os produtos podem possuir variações, permitindo representar diferentes tamanhos, sabores, volumes e preços de um mesmo item do cardápio.
+
+Essa modelagem foi planejada para permitir a evolução da API, facilitando a implementação de pedidos, controle de estoque, relatórios de vendas e integração com banco de dados relacionais.
+
 ### Produtos
 
 - [x] Listar todos os produtos
@@ -81,6 +95,28 @@ Error Middleware
 - [x] Cadastrar produto
 - [ ] Atualizar produto
 - [ ] Remover produto
+
+## 📦 Exemplo de Produto
+
+```json
+{
+  "id": 1,
+  "name": "Corvina",
+  "category": "comida",
+  "subcategory": "peixe_frito",
+  "description": "Acompanha arroz, pirão, molho de camarão...",
+  "available": true,
+  "variations": [
+    {
+      "id": "1-001",
+      "name": "3 postas",
+      "price": 98,
+      "quantity": 3,
+      "available": true
+    }
+  ]
+}
+```
 
 ## 📌 Status
 
@@ -90,7 +126,7 @@ Error Middleware
 
 - Atualização de produtos
 - Exclusão de produtos
-- Modelagem completa do domínio
+- Cadastro de variações de produtos
 - Integração com PostgreSQL
 - Docker
 - Testes automatizados
@@ -101,19 +137,28 @@ Clone o repositório:
 
 ```bash
 git clone https://github.com/TatianeMarinho/api-cardapio-restaurante.git
+```
 
 Entre na pasta:
 
+```bash
 cd api-cardapio-restaurante
+```
 
 Instale as dependências:
 
+```bash
 npm install
+```
 
 Execute o projeto:
 
+```bash
 npm run dev
+```
 
 A API estará disponível em:
 
+```text
 http://localhost:3000
+```

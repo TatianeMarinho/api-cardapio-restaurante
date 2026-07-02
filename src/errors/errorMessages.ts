@@ -19,8 +19,8 @@ export const Errors = {
     statusCode: 400,
   },
 
-  REQUIRED_PRODUCT_PRICE: {
-    message: "O preço do produto é obrigatório",
+  REQUIRED_PRODUCT_VARIATIONS: {
+    message: "As variações do produto são obrigatórias",
     statusCode: 400,
   },
 
@@ -39,8 +39,8 @@ export const Errors = {
     statusCode: 400,
   },
 
-  INVALID_PRODUCT_PRICE_TYPE: {
-    message: "O preço do produto deve ser um número",
+  INVALID_PRODUCT_VARIATIONS_TYPE: {
+    message: "As variações do produto devem ser uma lista",
     statusCode: 400,
   },
 
@@ -49,8 +49,13 @@ export const Errors = {
     statusCode: 400,
   },
 
-  INVALID_PRODUCT_PRICE_VALUE: {
-    message: "O preço do produto deve ser maior ou igual a zero",
+  INVALID_PRODUCT_PRICE_TYPE: {
+    message: "O preço do produto deve ser um número",
     statusCode: 400,
   },
+
+  INVALID_PRODUCT_PRICE_VALUE: {
+    message: "O preço do produto deve ser maior que zero",
+    statusCode: 400,
+  }
 };

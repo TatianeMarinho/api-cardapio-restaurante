@@ -7,7 +7,7 @@ export function validateCreateProductMiddleware (
     res: Response,
     next: NextFunction
 ): void {
-    const { name, category, price, description } = req.body;
+    const { name, category, description, variations } = req.body;
 
     if (name === undefined) {
         throw new AppError(
@@ -16,11 +16,27 @@ export function validateCreateProductMiddleware (
         );
     }
 
-    if (price === undefined) {
+    if (variations === undefined) {
         throw new AppError(
-            Errors.REQUIRED_PRODUCT_PRICE.message,
-            Errors.REQUIRED_PRODUCT_PRICE.statusCode
+            Errors.REQUIRED_PRODUCT_VARIATIONS.message,
+            Errors.REQUIRED_PRODUCT_VARIATIONS.statusCode
         );
+    }
+
+    if (!Array.isArray(variations)){
+        throw new AppError(
+            Errors.INVALID_PRODUCT_VARIATIONS_TYPE.message,
+            Errors.INVALID_PRODUCT_VARIATIONS_TYPE.statusCode
+        );
+    }
+
+    for (const variation of variations) {
+        if (typeof variation.price !== "number" ) {
+            throw new AppError( 
+                Errors.INVALID_PRODUCT_PRICE_TYPE.message,
+                Errors.INVALID_PRODUCT_PRICE_TYPE.statusCode
+            )
+        }
     }
 
     if (description === undefined) {
@@ -41,13 +57,6 @@ export function validateCreateProductMiddleware (
         throw new AppError(
             Errors.INVALID_PRODUCT_NAME_TYPE.message,
             Errors.INVALID_PRODUCT_NAME_TYPE.statusCode
-        );
-    }
-
-    if ( typeof price !== 'number') {
-        throw new AppError(
-            Errors.INVALID_PRODUCT_PRICE_TYPE.message,
-            Errors.INVALID_PRODUCT_PRICE_TYPE.statusCode
         );
     }
     

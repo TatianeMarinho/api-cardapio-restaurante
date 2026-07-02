@@ -41,7 +41,13 @@ export class ProductService {
                 Errors.REQUIRED_PRODUCT_DESCRIPTION.statusCode
             );
         }
-        if (data.price <= 0) {
+
+        // Verifica se todas as variações têm preço maior que zero
+        const hasInvalidPrice = data.variations.some(
+            (variation) => variation.price <= 0
+        );
+
+        if (hasInvalidPrice) {
             throw new AppError(
                 Errors.INVALID_PRODUCT_PRICE_VALUE.message, 
                 Errors.INVALID_PRODUCT_PRICE_VALUE.statusCode
