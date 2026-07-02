@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { ProductService } from '../services/product.service';
 import { AppError } from '../errors/app-error';
 import { Errors } from '../errors/errorMessages';
+import { CreateProductDTO } from '../dtos/create-product.dto';
 
 export class ProductController {
     private productService = new ProductService();
@@ -25,5 +26,13 @@ export class ProductController {
         const productId = this.productService.findById(id);
 
         res.json(productId);
+    }
+
+    public create(req: Request, res: Response): void {
+        const data: CreateProductDTO = req.body;
+
+        const newProduct = this.productService.create(data);
+
+        res.status(201).json(newProduct);
     }
 }

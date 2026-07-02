@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { ProductController } from '../controllers/product.controller';
+import { validateCreateProductMiddleware } from '../middlewares/validate-create-product.middleware';
 
 const productRoutes = Router();
 
@@ -12,6 +13,10 @@ productRoutes.get("/", (req, res) => {
 productRoutes.get("/:id", (req, res) => {
     productController.findById(req, res); //chama o método findById da classe ProductController
 })
+
+productRoutes.post("/", validateCreateProductMiddleware, (req, res) => {
+    productController.create(req, res); //chama o método create da classe ProductController
+});
 
 export default productRoutes;
 

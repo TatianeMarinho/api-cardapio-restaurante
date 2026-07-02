@@ -26,6 +26,9 @@ api_cardapio_restaurante/
 ├── src/
 |   ├── controllers/
 |   ├── data/
+|   ├── dtos/
+|   ├── errors/
+|   ├── middlewares/
 |   ├── repositories/
 |   ├── routes/
 |   ├── services/
@@ -64,9 +67,10 @@ Error Middleware
 ### Produtos
 
 | Método | Endpoint | Descrição |
-|--------|----------|-----------|
+|---------|----------|-----------|
 | GET | /produtos | Lista todos os produtos |
-| GET | /produtos/:id | Busca um produto pelo ID |
+| GET | /produtos/:id | Busca um produto por ID |
+| POST | /produtos | Cadastra um novo produto |
 
 ## Funcionalidades
 
@@ -74,7 +78,7 @@ Error Middleware
 
 - [x] Listar todos os produtos
 - [x] Buscar produto por ID
-- [ ] Cadastrar produto
+- [x] Cadastrar produto
 - [ ] Atualizar produto
 - [ ] Remover produto
 
@@ -84,7 +88,6 @@ Error Middleware
 
 ## Próximos Passos
 
-- Cadastro de produtos
 - Atualização de produtos
 - Exclusão de produtos
 - Modelagem completa do domínio
