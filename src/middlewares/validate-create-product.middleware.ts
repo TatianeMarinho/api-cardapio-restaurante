@@ -8,6 +8,7 @@ export function validateCreateProductMiddleware (
     next: NextFunction
 ): void {
     const { name, category, description, variations } = req.body;
+    const validCategories = ["comida", "sobremesa", "viagem", "bebida"];
 
     if (name === undefined) {
         throw new AppError(
@@ -71,6 +72,13 @@ export function validateCreateProductMiddleware (
         throw new AppError(
             Errors.INVALID_PRODUCT_DESCRIPTION_TYPE.message,
             Errors.INVALID_PRODUCT_DESCRIPTION_TYPE.statusCode
+        );
+    }
+
+    if ( !validCategories.includes(category)) {
+        throw new AppError(
+            Errors.INVALID_PRODUCT_CATEGORY_VALUE.message,
+            Errors.INVALID_PRODUCT_CATEGORY_VALUE.statusCode
         );
     }
 

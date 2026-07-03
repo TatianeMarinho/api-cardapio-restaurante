@@ -1,6 +1,7 @@
 import { products } from '../data/products.data';
 import { DrinkProduct, DrinkVariation, FoodProduct, FoodVariation, Product } from '../types/product';
 import { CreateProductDTO } from '../dtos/create-product.dto';
+import { UpdateProductDTO } from '../dtos/Update-product.dto';
 
 export class ProductRepository {
 
@@ -41,6 +42,7 @@ export class ProductRepository {
         return `${productId}-${String(nextValue).padStart(3, "0")}`;
     }
 
+    //verifica o id anterior de variations e aumenta em um criando um novo id
     private generateCreateVariations<T extends object>(
         variations:T[], productId:number
     ): (T & {id:string, available: boolean})[] {
@@ -92,5 +94,31 @@ export class ProductRepository {
             return newProduct;
         }
     }
+
+    public update(id: number, data: UpdateProductDTO): Product | undefined {
+        const productIndex = products.findIndex(
+            (product) => product.id === id
+        );
+
+        if(productIndex === -1) {
+            return undefined;
+        }
+
+        const currentProduct = products[productIndex];
+
+        //valido que o produto nao é indefinido
+        if(!currentProduct) {
+            return undefined;
+        }
+
+        const updateProduct: Product = {
+            ...data,
+            id,
+            available: currentProduct.available,
+        };
+
+        products[productIndex] = updateProduct;
+        return updateProduct;
+    } 
 
 }

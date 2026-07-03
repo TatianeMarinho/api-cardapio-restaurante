@@ -18,6 +18,10 @@ productRoutes.post("/", validateCreateProductMiddleware, (req, res) => {
     productController.create(req, res); //chama o método create da classe ProductController
 });
 
+productRoutes.put("/:id", validateCreateProductMiddleware, (req, res) =>{
+    productController.update(req, res);
+});
+
 export default productRoutes;
 
 //configura as rotas de produtos da aplicação/express

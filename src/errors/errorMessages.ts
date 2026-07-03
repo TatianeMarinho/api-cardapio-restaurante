@@ -57,5 +57,11 @@ export const Errors = {
   INVALID_PRODUCT_PRICE_VALUE: {
     message: "O preço do produto deve ser maior que zero",
     statusCode: 400,
-  }
+  },
+
+  INVALID_PRODUCT_CATEGORY_VALUE: {
+    message: "A categoria do produto é inválida",
+    statusCode: 400,
+  },
+
 };

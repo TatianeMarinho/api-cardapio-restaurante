@@ -79,10 +79,11 @@ Error Middleware
 | GET | /produtos | Lista todos os produtos |
 | GET | /produtos/:id | Busca um produto por ID |
 | POST | /produtos | Cadastra um novo produto |
+| PUT | /produtos/:id | Atualiza um produto |
 
 ## Funcionalidades
 
-## Modelagem do domínio
+### Modelagem do domínio
 
 Os produtos podem possuir variações, permitindo representar diferentes tamanhos, sabores, volumes e preços de um mesmo item do cardápio.
 
@@ -93,7 +94,7 @@ Essa modelagem foi planejada para permitir a evolução da API, facilitando a im
 - [x] Listar todos os produtos
 - [x] Buscar produto por ID
 - [x] Cadastrar produto
-- [ ] Atualizar produto
+- [x] Atualizar produto
 - [ ] Remover produto
 
 ## 📦 Exemplo de Produto
