@@ -97,4 +97,15 @@ export class ProductService {
         }
         return product;
     }
+
+    public delete(id: number): void{
+        const deleted = this.productRepository.delete(id);
+
+        if(!deleted) {
+            throw new AppError(
+                Errors.PRODUCT_NOT_FOUND.message,
+                Errors.PRODUCT_NOT_FOUND.statusCode
+            );
+        }
+    }
 }

@@ -22,6 +22,10 @@ productRoutes.put("/:id", validateCreateProductMiddleware, (req, res) =>{
     productController.update(req, res);
 });
 
+productRoutes.delete("/:id", (req, res) => {
+    productController.delete(req, res);
+})
+
 export default productRoutes;
 
 //configura as rotas de produtos da aplicação/express

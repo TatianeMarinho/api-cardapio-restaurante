@@ -53,4 +53,18 @@ export class ProductController {
 
         res.json(updatedProduct);
     }
+
+    public delete(req: Request, res: Response): void {
+        const id = Number(req.params.id);
+
+        if(Number.isNaN(id)) {
+            throw new AppError(
+                Errors.INVALID_PRODUCT_ID.message,
+                Errors.INVALID_PRODUCT_ID.statusCode,
+            );
+        }
+
+        this.productService.delete(id);
+        res.status(204).send();
+    }
 }

@@ -1,4 +1,7 @@
 # 🍽️  API Cardápio Restaurante
+![Node.js](https://img.shields.io/badge/Node.js-22.x-green)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
 Projeto desenvolvido com foco em aprendizado e boas práticas de desenvolvimento Back-end, simulando a construção de uma API REST para gerenciamento do cardápio de um restaurante.
 
@@ -18,6 +21,8 @@ Projeto desenvolvido com foco em aprendizado e boas práticas de desenvolvimento
 - TypeScript
 - Git
 - GitHub
+- REST API
+- Thunder Client
 
 ## 📁 Estrutura do Projeto
 
@@ -46,7 +51,7 @@ api_cardapio_restaurante/
 
 ## 🏗️ Arquitetura
 
-A aplicação segue uma arquitetura em camadas para facilitar a manutenção e a escalabilidade.
+Cada camada possui uma responsabilidade específica, favorecendo baixo acoplamento, maior organização do código e facilidade de manutenção.
 
 Cliente
    │
@@ -80,6 +85,7 @@ Error Middleware
 | GET | /produtos/:id | Busca um produto por ID |
 | POST | /produtos | Cadastra um novo produto |
 | PUT | /produtos/:id | Atualiza um produto |
+| DELETE | /produtos/:id | Remove um produto |
 
 ## Funcionalidades
 
@@ -95,7 +101,7 @@ Essa modelagem foi planejada para permitir a evolução da API, facilitando a im
 - [x] Buscar produto por ID
 - [x] Cadastrar produto
 - [x] Atualizar produto
-- [ ] Remover produto
+- [x] Remover produto
 
 ## 📦 Exemplo de Produto
 
@@ -125,9 +131,8 @@ Essa modelagem foi planejada para permitir a evolução da API, facilitando a im
 
 ## Próximos Passos
 
-- Atualização de produtos
-- Exclusão de produtos
 - Cadastro de variações de produtos
+- Modelagem completa do domínio
 - Integração com PostgreSQL
 - Docker
 - Testes automatizados
