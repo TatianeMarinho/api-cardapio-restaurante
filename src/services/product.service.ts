@@ -4,6 +4,7 @@ import { AppError } from "../errors/app-error";
 import { Errors } from "../errors/errorMessages";
 import { CreateProductDTO  } from "../dtos/create-product.dto";
 import { UpdateProductDTO } from "../dtos/Update-product.dto";
+import { PatchProductDTO } from "../dtos/patch-product.dto";
 
 
 export class ProductService {
@@ -107,5 +108,18 @@ export class ProductService {
                 Errors.PRODUCT_NOT_FOUND.statusCode
             );
         }
+    }
+
+    public patch(id: number, data: PatchProductDTO): Product {
+        const pathedProduct = this.productRepository.patch(id, data);
+
+        if (!pathedProduct) {
+            throw new AppError(
+                Errors.PRODUCT_NOT_FOUND.message,
+                Errors.PRODUCT_NOT_FOUND.statusCode,
+            );
+        }
+
+        return pathedProduct;
     }
 }

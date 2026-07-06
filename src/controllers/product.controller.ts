@@ -4,6 +4,7 @@ import { AppError } from '../errors/app-error';
 import { Errors } from '../errors/errorMessages';
 import { CreateProductDTO } from '../dtos/create-product.dto';
 import { UpdateProductDTO } from '../dtos/Update-product.dto';
+import { PatchProductDTO } from '../dtos/patch-product.dto';
 
 export class ProductController {
     private productService = new ProductService();
@@ -66,5 +67,22 @@ export class ProductController {
 
         this.productService.delete(id);
         res.status(204).send();
+    }
+
+    public patch(req: Request, res: Response): void {
+        const id = Number(req.params.id);
+
+        if (Number.isNaN(id)) {
+            throw new AppError(
+                Errors.INVALID_PRODUCT_ID.message,
+                Errors.INVALID_PRODUCT_ID.statusCode,
+            );
+        }
+
+        const data: PatchProductDTO = req.body;
+
+        const patchedProduct = this.productService.patch(id, data);
+
+        res.json(patchedProduct);
     }
 }

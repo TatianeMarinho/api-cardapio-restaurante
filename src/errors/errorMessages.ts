@@ -64,4 +64,9 @@ export const Errors = {
     statusCode: 400,
   },
 
+  NO_FIELDS_TO_UPDATE: {
+    message: "Informe ao menos um campo para atualização.",
+    statusCode: 400,
+  },
+
 };

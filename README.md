@@ -100,7 +100,8 @@ Essa modelagem foi planejada para permitir a evolução da API, facilitando a im
 - [x] Listar todos os produtos
 - [x] Buscar produto por ID
 - [x] Cadastrar produto
-- [x] Atualizar produto
+- [x] Atualizar produto (PUT)
+- [x] Atualizar parcialmente produto (PATCH)
 - [x] Remover produto
 
 ## 📦 Exemplo de Produto
@@ -125,14 +126,12 @@ Essa modelagem foi planejada para permitir a evolução da API, facilitando a im
 }
 ```
 
-## 📌 Status
-
-🚧 Em desenvolvimento
-
 ## Próximos Passos
 
-- Cadastro de variações de produtos
-- Modelagem completa do domínio
+- Cadastro de variações
+- Atualização de variações
+- Exclusão de variações
+- Pedidos
 - Integração com PostgreSQL
 - Docker
 - Testes automatizados

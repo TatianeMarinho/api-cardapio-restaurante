@@ -2,6 +2,7 @@ import { products } from '../data/products.data';
 import { DrinkProduct, DrinkVariation, FoodProduct, FoodVariation, Product } from '../types/product';
 import { CreateProductDTO } from '../dtos/create-product.dto';
 import { UpdateProductDTO } from '../dtos/Update-product.dto';
+import { PatchProductDTO } from '../dtos/patch-product.dto';
 
 export class ProductRepository {
 
@@ -131,5 +132,38 @@ export class ProductRepository {
         products.splice(productIndex, 1);
 
         return true;
+    }
+
+    public patch(id:number, data: PatchProductDTO): Product | undefined {
+        const productIndex = products.findIndex((product) => product.id === id);
+
+        if(productIndex === -1) {
+            return undefined;
+        }
+
+        const currentProduct = products[productIndex];
+
+        if(!currentProduct) {
+            return undefined;
+        }
+
+        if (currentProduct.category === "bebida") {
+            const patchedProduct: DrinkProduct = {
+                ...currentProduct,
+                ...data,
+            };
+
+            products[productIndex] = patchedProduct;
+            return patchedProduct;
+        } else {
+            const patchedProduct: FoodProduct = {
+                ...currentProduct,
+                ...data,
+            };
+
+            products[productIndex] = patchedProduct;
+            return patchedProduct;
+
+        };        
     }
 }

@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { ProductController } from '../controllers/product.controller';
 import { validateCreateProductMiddleware } from '../middlewares/validate-create-product.middleware';
+import { validatePatchProductMiddleware } from '../middlewares/validade-patch-product.middleware';
 
 const productRoutes = Router();
 
@@ -25,6 +26,10 @@ productRoutes.put("/:id", validateCreateProductMiddleware, (req, res) =>{
 productRoutes.delete("/:id", (req, res) => {
     productController.delete(req, res);
 })
+
+productRoutes.patch("/:id", validatePatchProductMiddleware, (req, res) => {
+    productController.patch(req, res);
+});
 
 export default productRoutes;
 
