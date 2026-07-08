@@ -42,7 +42,7 @@ export type FoodVariation = {
     quantity?: number;
     flavor?: string;
     available: boolean;
-}
+};
 
 export type DrinkVariation = {
     id: string;
@@ -51,7 +51,7 @@ export type DrinkVariation = {
     price: number;
     quantity?: number;
     available: boolean;
-}
+};
 
 export type BaseProduct = {
     id: number;
@@ -62,18 +62,19 @@ export type BaseProduct = {
     isFavorite?: boolean;
     availableForDelivery?: boolean;
     notes?: string;
-}
+};
 
 export type FoodProduct = BaseProduct & {
     category: "comida" | "sobremesa" | "viagem";
     subcategory: ProductSubcategoryFood;
     variations: FoodVariation[];
-}
+};
 
 export type DrinkProduct = BaseProduct & {
     category: "bebida";
     subcategory: ProductSubcategoryDrink;
     variations: DrinkVariation[];
-}
+};
 
 export type Product = FoodProduct | DrinkProduct;
+

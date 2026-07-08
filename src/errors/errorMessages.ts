@@ -1,4 +1,9 @@
 export const Errors = {
+
+  // ===================
+  // Produtos
+  // ===================
+
   PRODUCT_NOT_FOUND: {
     message: "Produto não encontrado",
     statusCode: 404,
@@ -68,5 +73,14 @@ export const Errors = {
     message: "Informe ao menos um campo para atualização.",
     statusCode: 400,
   },
+
+  // ===================
+  // Variações
+  // ===================
+
+  VARIATION_NOT_FOUND: {
+    message: "Variação não encontrada",
+    statusCode: 404,
+  }
 
 };
